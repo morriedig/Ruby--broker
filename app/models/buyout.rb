@@ -18,14 +18,13 @@ class Buyout
   def subtract_item(product_id)
     find_commodity = @commodities.find{ |commodity| commodity.product_id == product_id }
 
-    if find_commodity.quantity > 0
+    if find_commodity.product_quantity > 0
       find_commodity.decrement
     end
   end
 
   def take_off(product_id)
     find_commodity = @commodities.find{ |commodity| commodity.product_id == product_id }
-
     @commodities.delete(find_commodity)
     # @commodities.delete(product_id)
   end
